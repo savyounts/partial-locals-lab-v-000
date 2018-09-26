@@ -12,7 +12,7 @@ class StudentsController < ApplicationController
       render 'new'
     end
   end
-
+ 
   def edit
     @student = Student.find(params[:id])
   end
@@ -23,7 +23,7 @@ class StudentsController < ApplicationController
 
   def index
     if !params[:name].blank?
-      Student.search(params[:search])
+      @students = Student.search(params[:search])
     else
       @students = Student.all
     end
